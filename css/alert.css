@@ -1,0 +1,54 @@
+#AlertOverlay {
+    background-color: red;
+    height: 100%;
+    left: 0;
+    margin: 0;
+    position: fixed;
+    opacity: 0.75;
+    background-color:black;
+    top: 0;
+    width: 100%;
+    z-index: 100;
+    display : block;
+}
+            
+#AlertBox {
+    background-color: white;
+    border: 1px solid gray;
+    margin: 0 auto;
+    position: absolute;
+    display : block;
+    text-align: left;
+    z-index: 99999;
+}   
+#AlertMsgBoard{
+    padding: 10px 40px 5px 20px; 
+}
+#AlertFooter{
+    padding: 0px 6px 3px 
+}
+.AlertButton {
+	display: inline-block;
+	outline: none;
+	cursor: pointer;
+	text-align: center;
+	text-decoration: none;
+	font: 14px/100% Arial, Helvetica, sans-serif;
+/*	padding: .5em 2em .55em;*/
+        float:right;
+	text-shadow: 0 1px 1px rgba(0,0,0,.3);
+	-webkit-border-radius: .5em; 
+	-moz-border-radius: .5em;
+	border-radius: .5em;
+	-webkit-box-shadow: 0 1px 2px rgba(0,0,0,.2);
+	-moz-box-shadow: 0 1px 2px rgba(0,0,0,.2);
+	box-shadow: 0 1px 2px rgba(0,0,0,.2);
+        margin-bottom: 2px;
+}
+.AlertButton:hover {
+	text-decoration: none;
+}
+.AlertButton:active {
+	position: relative;
+	top: 1px;
+}
