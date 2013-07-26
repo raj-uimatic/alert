@@ -3,13 +3,24 @@
     <link media='all' rel='stylesheet' type='text/css' href='css/alert.css' />
     </head>
 <body>
-    
-        <button onclick="Alert.show('This is a sample of First Example ')">Test String</button>
-        <button onclick="Alert.show({name:'rajat',designation:'developer'})">Test Object</button>
+        <button onclick="AlertBox.show('This is a sample of First Example ')">Test String</button>
+        <button onclick="AlertBox.show({name:'rajat',designation:'developer'})">Test Object</button>
         
-        <button onclick="Alert.show({customAlert:true,message : 'Hi there !'} )">Test Custom string message</button>
-        <button onclick="Alert.show({customAlert:true,message : {name:'rajat',designation:'developer'}} )">Test Custom Object message</button>
+        <button onclick="AlertBox.show({customAlert:true,message : 'Hi there !'} )">Test Custom string message</button>
+        <button onclick="AlertBox.show({customAlert:true,message : {name:'rajat',designation:'developer'}} )">Test Custom Object message</button>
 
+        
+        <hr>
+        
+        <button onclick="Alert('This is a sample of First Example ',{OkBtnText:'Accept'})">Test String</button>
+        <button onclick="Alert({name:'rajat',designation:'developer'})">Test Object</button>
+        
+        <button onclick="Alert({customAlert:true,message : 'Hi there !'} )">Test Custom string message</button>
+        <button onclick="Alert({customAlert:true,message : {name:'rajat',designation:'developer'}} )">Test Custom Object message</button>
+
+        
+        <hr>
+        <button onclick="alert('This is a sample of First Example ')">Test String</button>
         <script src="js/alert.js"></script>
 </body>
 </html>

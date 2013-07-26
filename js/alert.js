@@ -1,6 +1,10 @@
-Alert = {
+Settings =  {
+  overRideJsAlert: false
+};
 
-    message                 : 'Alert Box Library',  // default message
+AlertBox = {
+
+    message                 : 'AlertBox Library',  // default message
     clickOnBodyToHide       : false,                //click anywhere to hide AlertBox
     showBtnSeparatorFooter  : true,                 //show separator between button and message 
     escapeToHide            : false,                //esacepe key hides the AlertBox
@@ -10,24 +14,29 @@ Alert = {
                                                     
     box                     : 'AlertBox',           //developer settings // dont change unless fully aware of usage 
     overlay                 : 'AlertOverlay',       //developer settings // dont change unless fully aware of usage     
-    developerMode           : true,                 //Debug data in console 
+    developerMode           : false,                 //Debug data in console 
     customAlert             : false,                // set to true if message is to be displayed with custom settings 
     
 //    __constructor : function(){}(),
 /*******************************************************************/
-    init   : function(){
+    init   : function(config){
+        if(typeof(config)=="object")
+            this.forceSettings(config);
+        this.de("Initialzed",true);
         this.initEl();
         this.initEvents();
     },
     
     initEl  : function(){
         this.initBox();
-        this.initOverlay();        
+        this.initOverlay();    
+        this.de("Initialzed  Elements");
     },
     
     initEvents : function(){
         this.initKeys();
         this.initMouse();
+        this.de("Initialzed  Events");
     },    
     
     initKeys: function(){
@@ -35,14 +44,14 @@ Alert = {
             event = event || window.event;
             var keycode = event.charCode || event.keyCode;
             // event to handle 'escape' key
-            if(keycode === 27 && Alert.escapeToHide)  Alert.hide();
+            if(keycode === 27 && AlertBox.escapeToHide)  AlertBox.hide();
         }         
     },
     
     initMouse : function(){
         this.getOverlay().addEventListener('click', function(){
             if( this.clickOnBodyToHide)
-                Alert.__hide()
+                AlertBox.__hide()
         }, false)         
     },
     
@@ -50,6 +59,7 @@ Alert = {
         this.createcontainerBox();
         this.createMsgBoard();
         this.createBoxFooter();
+            
     },
     
     createcontainerBox : function(){
@@ -57,20 +67,23 @@ Alert = {
         c = document.createElement('div');
         c.id="AlertBox";
         c.style.visibility = 'hidden';
-        document.body.appendChild(c);         
+        document.body.appendChild(c);  
+        this.de("Container Box created");  
     },
     
     createMsgBoard : function(){
         m = document.createElement('div');
         m.id="AlertMsgBoard";
-        this.getEl('AlertBox').appendChild(m);         
+        this.getEl('AlertBox').appendChild(m); 
+        this.de("MsgBoard created");          
     },
     
     createBoxFooter : function(){
         f = document.createElement('div');
         f.id="AlertFooter";
         f.innerHTML = this.getBtnSeparator() + this.getOkBtnHtml();
-        this.getEl('AlertBox').appendChild(f);         
+        this.getEl('AlertBox').appendChild(f); 
+        this.de("Footer created");             
     },
     
     getBtnSeparator : function(){
@@ -78,7 +91,7 @@ Alert = {
     },
     
     getOkBtnHtml : function(){
-        return "<button class='AlertButton' id='okButton' onClick='Alert.hide()'>"+this.OkBtnText+"</button>";
+        return "<button class='AlertButton' id='okButton' onClick='AlertBox.hide()'>"+this.OkBtnText+"</button>";
     },
     
     initOverlay : function(){
@@ -120,6 +133,7 @@ Alert = {
     
     __show : function(){// dynamic content not being used currently
         this.setBoxPos();
+        
         if(this.showOverlay)
             this.getOverlay().style.visibility='visible'
         this.getBox().style.visibility='visible'  
@@ -154,7 +168,7 @@ Alert = {
     },
 
     setMsg : function(msg){
-        this.debug(msg)
+        this.de(msg)
         this.message = typeof(msg)=='object' ? JSON.stringify(msg) :  msg;
         this.updateMsgBoard();
     },
@@ -174,14 +188,14 @@ Alert = {
     show : function(msg){
         if(typeof(msg)=="object" && this.isValidCustomData(msg)){
             this.processCustom(msg)
-            this.debug("cusotm")
+            this.de("cusotm")
         }
         else{
-            this.debug("simple")
+            this.de("simple")
             this.processSimple(msg)
         }
     },
-
+    
     processSimple : function(msg){
         this.setMsg(msg);
         this.__show()
@@ -193,9 +207,29 @@ Alert = {
         this.__show()
     },
     
-    debug : function(d){
+    de : function(d,bool){
         if(console && this.developerMode)
             console.log(d)
+        if(bool && this.developerMode)
+            alert(d)
+    },
+    
+    forceSettings : function(config){
+        for(c in config)
+            this[c] = config[c]
     }
+    
 } 
-window.onload = Alert.init()
+
+window.onload = function(){
+
+//    AlertBox.init({OkBtnText:"Accept"}); // example when config is passed 
+    AlertBox.init(); // example when config is absent
+    Alert = function(msg,config){
+        AlertBox.show(msg);
+        if(typeof(config)=="object"){
+            alert("set settings")
+        }
+    }
+    if(Settings.overRideJsAlert) alert =  Alert;
+}
