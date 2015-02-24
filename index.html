@@ -1,26 +1,28 @@
- <!DOCTYPE html> 
-<html><head>
+<!DOCTYPE html>
+<html>
+<head>
     <link media='all' rel='stylesheet' type='text/css' href='css/alert.css' />
-    </head>
+</head>
 <body>
+    <div class="header">
+        alerts();
+    </div>
+    <div class='container'>
         <button onclick="AlertBox.show('This is a sample of First Example ')">Test String</button>
         <button onclick="AlertBox.show({name:'rajat',designation:'developer'})">Test Object</button>
-        
         <button onclick="AlertBox.show({customAlert:true,message : 'Hi there !'} )">Test Custom string message</button>
         <button onclick="AlertBox.show({customAlert:true,message : {name:'rajat',designation:'developer'}} )">Test Custom Object message</button>
-
-        
-        <hr>
-        
+        <hr/>
         <button onclick="Alert('This is a sample of First Example ',{OkBtnText:'Accept'})">Test String</button>
         <button onclick="Alert({name:'rajat',designation:'developer'})">Test Object</button>
-        
         <button onclick="Alert({customAlert:true,message : 'Hi there !'} )">Test Custom string message</button>
         <button onclick="Alert({customAlert:true,message : {name:'rajat',designation:'developer'}} )">Test Custom Object message</button>
-
-        
-        <hr>
+        <hr/>
         <button onclick="alert('This is a sample of First Example ')">Test String</button>
-        <script src="js/alert.js"></script>
+    </div>
+    <div class="footer">
+        Javascript Based AlertBox
+    </div>
+    <script src="js/alert.js"></script>
 </body>
 </html>
