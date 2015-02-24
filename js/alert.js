@@ -1,5 +1,5 @@
 Settings =  {
-  overRideJsAlert: false
+  overRideJsAlert: true
 };
 
 AlertBox = {

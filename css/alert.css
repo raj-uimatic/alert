@@ -1,54 +1,93 @@
-#AlertOverlay {
-    background-color: red;
-    height: 100%;
-    left: 0;
-    margin: 0;
+#AlertOverlay
+{
     position: fixed;
-    opacity: 0.75;
-    background-color:black;
-    top: 0;
-    width: 100%;
     z-index: 100;
-    display : block;
+    top: 0;
+    left: 0;
+    display: block;
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    opacity: .75;
+    background-color: red;
+    background-color: black;
 }
-            
-#AlertBox {
-    background-color: white;
-    border: 1px solid gray;
-    margin: 0 auto;
+#AlertBox
+{
     position: absolute;
-    display : block;
-    text-align: left;
     z-index: 99999;
-}   
-#AlertMsgBoard{
-    padding: 10px 40px 5px 20px; 
+    display: block;
+    margin: 0 auto;
+    text-align: left;
+    border: 1px solid gray;
+    background-color: white;
+    padding: 5px;
 }
-#AlertFooter{
-    padding: 0px 6px 3px 
+#AlertMsgBoard
+{
+    padding: 10px 40px 5px 20px;
 }
-.AlertButton {
-	display: inline-block;
-	outline: none;
-	cursor: pointer;
-	text-align: center;
-	text-decoration: none;
-	font: 14px/100% Arial, Helvetica, sans-serif;
-/*	padding: .5em 2em .55em;*/
-        float:right;
-	text-shadow: 0 1px 1px rgba(0,0,0,.3);
-	-webkit-border-radius: .5em; 
-	-moz-border-radius: .5em;
-	border-radius: .5em;
-	-webkit-box-shadow: 0 1px 2px rgba(0,0,0,.2);
-	-moz-box-shadow: 0 1px 2px rgba(0,0,0,.2);
-	box-shadow: 0 1px 2px rgba(0,0,0,.2);
-        margin-bottom: 2px;
+#AlertFooter
+{
+    padding: 0 6px 3px;
 }
-.AlertButton:hover {
-	text-decoration: none;
+.AlertButton
+{
+    font: 14px/100% Arial, Helvetica, sans-serif;
+    display: inline-block;
+    /*  padding: .5em 2em .55em;*/
+    float: right;
+    margin-bottom: 2px;
+    cursor: pointer;
+    text-align: center;
+    text-decoration: none;
+    -webkit-border-radius: .5em;
+       -moz-border-radius: .5em;
+            border-radius: .5em;
+    outline: none;
+    -webkit-box-shadow: 0 1px 2px rgba(0,0,0,.2);
+       -moz-box-shadow: 0 1px 2px rgba(0,0,0,.2);
+            box-shadow: 0 1px 2px rgba(0,0,0,.2);
+    text-shadow: 0 1px 1px rgba(0,0,0,.3);
 }
-.AlertButton:active {
-	position: relative;
-	top: 1px;
+.AlertButton:hover
+{
+    text-decoration: none;
+}
+.AlertButton:active
+{
+    position: relative;
+    top: 1px;
+}
+button
+{
+    font-variant: small-caps;
+    padding: 5px;
+    border: 1px solid #fff;
+}
+body
+{
+    margin: 0 auto;
+    font-family: monospace;
+}
+.header
+{
+    padding: 20px;
+    text-align: center;
+    font-size: 22px;
+}
+.container
+{
+    padding: 50px;
+    text-align: center;
+}
+.footer
+{
+    font-size: 10px;
+    padding: 20px;
+    text-align: center;
+    color: #808080;
+}
+hr{
+    color: #C0C0C0;
 }
